@@ -17,7 +17,7 @@ class Estoque
 	public function get(string $item)
 	{
 		if (isset($this->itens[$item])) {
-			return $this->itens[$item] +1;
+			return $this->itens[$item];
 		}
 
 		throw new InvalidArgumentException('Item não existe no estoque');

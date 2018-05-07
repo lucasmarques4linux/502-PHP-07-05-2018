@@ -51,6 +51,14 @@ class PedidoTest extends TestCase
 		// Espera que ele execute pelo menos uma vez o método get e retorne 0
 		// Espera que ele nunca execute o método remove
 
+		$this->estoque->expects($this->once())
+							->method('get')
+							->with($this->equalTo($item))
+							->will($this->returnValue(0));
+							
+		$this->estoque->expects($this->never())
+							->method('remove');
+
 		$pedido = new Pedido($item,$qtd);
 		$pedido->fechar($this->estoque);
 		$this->assertFalse($pedido->isFinalizado());
