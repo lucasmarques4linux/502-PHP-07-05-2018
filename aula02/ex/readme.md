@@ -14,7 +14,7 @@
 
 
 ### Banco de dados
-####Instalando Postgres
+#### Instalando Postgres
 ```
 sudo apt update && sudo apt install postgresql
 ```
