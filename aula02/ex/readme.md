@@ -14,7 +14,7 @@
 
 
 ### Banco de dados
-Instalando Postgres
+####Instalando Postgres
 ```
 sudo apt update && sudo apt install postgresql
 ```
@@ -43,10 +43,34 @@ CREATE TABLE users(
 	pass VARCHAR(200) NOT NULL
 );
 ```
-
+#### Instalando Mysql
+Logar e Criar uma base de dados e um usuario nosso
+```
+sudo su
+mysql
+CREATE DATABASE aula;
+CREATE USER 'lucas'@'localhost' IDENTIFIED BY '@da4linux';
+GRANT ALL PRIVILEGES ON aula.* TO 'lucas'@'localhost';
+exit
+exit
+```
+Logando com nosso usuário
+```
+mysql -h localhost -b aula -u lucas -p
+```
+Criando tabela
+```
+CREATE TABLE users(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(200) NOT NULL,
+	email VARCHAR(150) NOT NULL UNIQUE,
+	pass VARCHAR(200) NOT NULL
+);
+```
 ### Php
 Instalando plugins
 ```
 sudo apt install php7.0-pgsql
+sudo apt install php7.0-mysql
 sudo service apache2 restart
-``` 
+```
