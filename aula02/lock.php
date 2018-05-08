@@ -6,7 +6,7 @@ $arquivo = fopen('arquivo.txt', 'w+');
 // LOCK_EX - Lock exclusivo
 // LOCK_UN - Libera Lock
 
-if (flock($arquivo, LOCK_EX)) {
+if (flock($arquivo, LOCK_EX | LOCK_NB)) {
 	fwrite($arquivo, 'Olá');
 	sleep(10);
 	flock($arquivo, LOCK_UN);
