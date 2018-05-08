@@ -7,6 +7,11 @@
 - Caso não tenha um banco de dados, crie-o
 - Pelo menos 1 tabela com 4 campos
 
+Limpando os dados para importação
+```
+$dado = trim(stripslashes($dado));
+```
+
 ## Exportar dados para csv
 
 - Ler as informações do banco
