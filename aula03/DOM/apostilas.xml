@@ -7,17 +7,17 @@
 			<topico>Intermediario</topico>
 			<topico>Avancado</topico>
 		</topicos>
-	</apostila>
+	<pagina>140</pagina></apostila>
 	<apostila id="2">
-		<titulo>Java</titulo>
+		<titulo>Dominando Java</titulo>
 		<topicos>
 			<topico>Introdução</topico>
 			<topico>Intermediario</topico>
 			<topico>Avancado</topico>
 		</topicos>
-	</apostila>
+	<pagina>185</pagina></apostila>
 	<apostila id="3">
-		<titulo>Ruby</titulo>
+		<titulo>Dominando Ruby</titulo>
 		<topicos>
 			<topico>Introdução</topico>
 			<topico>Intermediario</topico>

@@ -14,6 +14,8 @@ print_r($titulo);
 // var_dump($titulo->item(0));
 
 $titulo->item(0)->nodeValue = 'Dominando PHP';
+$titulo->item(1)->nodeValue = 'Dominando Java';
+$titulo->item(2)->nodeValue = 'Dominando Ruby';
 
 // Salva o arquivo
 
