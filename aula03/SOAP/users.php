@@ -13,7 +13,7 @@ class User
 	{
 		$stmt = $this->con->query('SELECT * FROM users');
 		$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		return $users;
+		return json_encode($users);
 	}
 
 	public function find(int $id)
