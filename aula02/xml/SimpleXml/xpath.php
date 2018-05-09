@@ -12,3 +12,5 @@ echo '<hr>';
 $capitulos = $apostilas->xpath('/apostilas/apostila/capitulos');
 
 print_r($capitulos);
+
+echo '<hr>';
