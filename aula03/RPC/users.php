@@ -16,7 +16,7 @@ class User
 		return $users;
 	}
 
-	public function insert($data)
+	public function insert(array $data)
 	{
 		$sql = "INSERT INTO users (name,email,pass) VALUES (:name,:email,:pass)";
 		$stmt = $this->con->prepare($sql);
