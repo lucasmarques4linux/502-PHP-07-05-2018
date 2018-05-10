@@ -1,0 +1,16 @@
+{
+    "name": "developer/projeto",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Lucas Marques",
+            "email": "lucasmarques73@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+    	"psr-4":{
+    		"":"app/"
+    	}
+    }
+}

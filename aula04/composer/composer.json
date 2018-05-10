@@ -18,5 +18,11 @@
         "psr-4":{
             "App\\":"src/"
         }
+    },
+    "scripts":{
+        "run-server": [
+            "php -S 0.0.0.0:8081 public/index.php"                
+        ]
     }
+
 }
