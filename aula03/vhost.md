@@ -20,7 +20,7 @@ Criar o vhost dentro de `/etc/apache2/sites-available`
 
 Habilita o Vhost `sudo a2ensite`  
 
-Adiciona no arquivo `/etc/hosts`
+Adiciona no arquivo `/etc/hosts` `sudo subl /etc/hosts`
 ```
 127.0.0.1	blog.com.br
 ```
