@@ -23,7 +23,7 @@ class UsersController extends Controller
     	if (!$user) {
     		return response()->json(null,204);
     	}
-    	return response()->json([$user],200);
+    	return response()->json($user,200);
     }
 
     public function store(Request $request)
@@ -37,13 +37,13 @@ class UsersController extends Controller
     		]);
 
     	if ($validator->fails()) {
-    		return response()->json([$validator->errors()],400);
+    		return response()->json($validator->errors(),400);
     	}
 
     	$user = new User();
     	$user->fill($data);
     	$user->save();
-    	return response()->json([$user],201);
+    	return response()->json($user,201);
     }
 
     public function update(Request $request,$user)
@@ -61,7 +61,7 @@ class UsersController extends Controller
     		]);
 
     	if ($validator->fails()) {
-    		return response()->json([$validator->errors()],400);
+    		return response()->json($validator->errors(),400);
     	}
 
     	$user->fill($data);
@@ -69,7 +69,7 @@ class UsersController extends Controller
 
     	// $user->update($data);
 
-    	return response()->json([$user],200);
+    	return response()->json($user,200);
     }
 
     public function destroy($user)
@@ -82,5 +82,16 @@ class UsersController extends Controller
     	$user->delete();
 
     	return response()->json(null,200);
+    }
+
+    public function posts($user)
+    {
+    	$user = User::find($user);
+    	if (!$user) {
+    		return response()->json(null,204);
+    	}
+
+    	$posts = $user->posts;
+    	return response()->json($posts,200);
     }
 }

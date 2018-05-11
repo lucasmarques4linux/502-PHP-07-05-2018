@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome',['name' => 'Lucas']);
-// });
+Route::get('/', function () {
+    return view('welcome',['name' => 'Lucas']);
+});
 
 
 // Route::get('/hello', function () {
@@ -24,10 +24,13 @@
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/users', 'UsersController@index');
-Route::post('/users', 'UsersController@store');
-Route::get('/users/{user}', 'UsersController@show');
-Route::put('/users/{user}', 'UsersController@update');
-Route::delete('/users/{user}', 'UsersController@destroy');
+// Route::get('/users', 'UsersController@index');
+// Route::post('/users', 'UsersController@store');
+// Route::get('/users/{user}', 'UsersController@show');
+// Route::put('/users/{user}', 'UsersController@update');
+// Route::delete('/users/{user}', 'UsersController@destroy');
 
-// Route::resource('users', 'UsersController');
+Route::get('/users/{user}/posts', 'UsersController@posts');
+
+Route::resource('users', 'UsersController');
+Route::resource('posts', 'PostsController');
