@@ -7,11 +7,11 @@
 </head>
 <body>
 
-<form>
-	<p><input type="text" name="name" placeholder="Name"></p>
-	<p><input type="email" name="email" placeholder="email@email.com"></p>
-	<p><input type="password" name="password"></p>
-	<button>Save</button>
+<form id="insertUser">
+	<p><input type="text" id="name" placeholder="Name"></p>
+	<p><input type="email" id="email" placeholder="email@email.com"></p>
+	<p><input type="password" id="password"></p>
+	<p id="saveUser">Save</p>
 </form>
 
 
@@ -28,28 +28,51 @@
 
 </body>
 <script type="text/javascript">
+
+	var endpoint = 'http://localhost:8000/users';
+	var	tableContent = '';
 	
 	$(document).ready(function () {
 		
-		var endpoint = 'http://localhost:8000/users';
+		getUser();		
 
-		$.getJSON(endpoint, function ($data){
+		$('#saveUser').click(function(){
 
-			var	tableContent = '<tr><th>#</th><th>Name</th>0<th>Email</th></tr>';
+			var name = $('#name').val();
+			var email = $('#email').val();
+			var password = $('#password').val();
 
-			$.each($data,function(index,value){
+			var user = {name:name,email:email,password:password};
+
+			$.post(endpoint,JSON.stringify(user),function(result){
 				tableContent += '<tr>';
-				tableContent += '<td>' + value.id   + '</td>';
-				tableContent += '<td>' + value.name  + '</td>';
-				tableContent += '<td>' + value.email + '</td>';
+				tableContent += '<td>' + result.id   + '</td>';
+				tableContent += '<td>' + result.name  + '</td>';
+				tableContent += '<td>' + result.email + '</td>';
 				tableContent += '</tr>';
-			});
 
-			$('#listUsers').html(tableContent);
-
+				$('#listUsers').append(tableContent);
+			});	
 		});
 
 	});
+
+	function getUser()
+		{
+			$.get(endpoint, function ($data){
+
+				$.each($data,function(index,value){
+					tableContent += '<tr>';
+					tableContent += '<td>' + value.id   + '</td>';
+					tableContent += '<td>' + value.name  + '</td>';
+					tableContent += '<td>' + value.email + '</td>';
+					tableContent += '</tr>';
+				});
+
+				$('#listUsers').append(tableContent);
+
+			});
+		}
 
 </script>
 </html>

@@ -11,16 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome',['name' => 'Lucas']);
-});
+// Route::get('/', function () {
+//     return view('welcome',['name' => 'Lucas']);
+// });
 
 
 // Route::get('/hello', function () {
 //     return view('hello',['name' => 'Lucas']);
 // });
 
-// Auth::routes();
+Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -30,7 +30,8 @@ Route::get('/', function () {
 // Route::put('/users/{user}', 'UsersController@update');
 // Route::delete('/users/{user}', 'UsersController@destroy');
 
-Route::get('/users/{user}/posts', 'UsersController@posts');
+Route::get('/', 'PostsController@list');
 
+Route::get('/users/{user}/posts', 'UsersController@posts');
 Route::resource('users', 'UsersController');
 Route::resource('posts', 'PostsController');

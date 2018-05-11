@@ -17,6 +17,12 @@ class PostsController extends Controller
     	return response()->json($posts,200);
     }
 
+    public function list()
+    {
+        $posts = Post::all();
+        return view('posts.index',['posts' => $posts]);
+    }
+
     public function show($post)
     {
     	$post = Post::find($post);
