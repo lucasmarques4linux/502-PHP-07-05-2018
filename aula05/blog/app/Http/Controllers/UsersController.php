@@ -14,7 +14,7 @@ class UsersController extends Controller
     	if (!$users) {
     		return response()->json(null,204);
     	}
-    	return response()->json([$users],200);
+    	return response()->json($users,200);
     }
 
     public function show($user)

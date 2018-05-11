@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Front Users</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+<form>
+	<p><input type="text" name="name" placeholder="Name"></p>
+	<p><input type="email" name="email" placeholder="email@email.com"></p>
+	<p><input type="password" name="password"></p>
+	<button>Save</button>
+</form>
+
+
+<hr>
+<h2>List Of Users</h2>
+
+<table id="listUsers" border="1">
+	<tr>
+		<th>#</th>
+		<th>Name</th>
+		<th>Email</th>
+	</tr>
+</table>
+
+</body>
+<script type="text/javascript">
+	
+	$(document).ready(function () {
+		
+		var endpoint = 'http://localhost:8000/users';
+
+		$.getJSON(endpoint, function ($data){
+
+			var	tableContent = '<tr><th>#</th><th>Name</th>0<th>Email</th></tr>';
+
+			$.each($data,function(index,value){
+				tableContent += '<tr>';
+				tableContent += '<td>' + value.id   + '</td>';
+				tableContent += '<td>' + value.name  + '</td>';
+				tableContent += '<td>' + value.email + '</td>';
+				tableContent += '</tr>';
+			});
+
+			$('#listUsers').html(tableContent);
+
+		});
+
+	});
+
+</script>
+</html>

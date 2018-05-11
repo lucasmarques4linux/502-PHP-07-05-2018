@@ -24,10 +24,10 @@
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/users', 'UsersController@index');
-// Route::post('/users', 'UsersController@store');
-// Route::get('/users/{user}', 'UsersController@show');
-// Route::put('/users/{user}', 'UsersController@update');
-// Route::delete('/users/{user}', 'UsersController@destroy');
+Route::get('/users', 'UsersController@index');
+Route::post('/users', 'UsersController@store');
+Route::get('/users/{user}', 'UsersController@show');
+Route::put('/users/{user}', 'UsersController@update');
+Route::delete('/users/{user}', 'UsersController@destroy');
 
-Route::resource('users', 'UsersController');
+// Route::resource('users', 'UsersController');
